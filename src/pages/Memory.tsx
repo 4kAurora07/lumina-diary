@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Calendar } from "lucide-react";
 import { useAuth } from "@/hooks/useAuth";
-import { supabase } from "@/lib/supabase";
+import { supabase } from "@/integrations/supabase/client";
 import AppLayout from "@/components/AppLayout";
 import EntryCard from "@/components/EntryCard";
 import { useNavigate } from "react-router-dom";

@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeft, Save, Globe, Lock, Hash, Loader2 } from "lucide-react";
 import { useAuth } from "@/hooks/useAuth";
-import { supabase } from "@/lib/supabase";
+import { supabase } from "@/integrations/supabase/client";
 import MoodPicker from "@/components/MoodPicker";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
