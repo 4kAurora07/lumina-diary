@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Sparkles, BookOpen, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { lovable } from "@/integrations/lovable/index";
 
 const Auth = () => {
   const { user, loading, signIn, signUp } = useAuth();
