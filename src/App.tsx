@@ -7,7 +7,7 @@ import Index from "./pages/Index";
 import Auth from "./pages/Auth";
 import Editor from "./pages/Editor";
 import Search from "./pages/Search";
-import Memory from "./pages/Memory";
+import Insights from "./pages/Insights";   // ← changed
 import Profile from "./pages/Profile";
 import NotFound from "./pages/NotFound";
 
@@ -27,7 +27,7 @@ const AppRoutes = () => (
     <Route path="/write" element={<ProtectedRoute><Editor /></ProtectedRoute>} />
     <Route path="/write/:id" element={<ProtectedRoute><Editor /></ProtectedRoute>} />
     <Route path="/search" element={<ProtectedRoute><Search /></ProtectedRoute>} />
-    <Route path="/memory" element={<ProtectedRoute><Memory /></ProtectedRoute>} />
+    <Route path="/insights" element={<ProtectedRoute><Insights /></ProtectedRoute>} />   {/* ← changed */}
     <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
     <Route path="*" element={<NotFound />} />
   </Routes>
