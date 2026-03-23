@@ -7,9 +7,9 @@ import { Button } from "@/components/ui/button";
 import { supabase } from "@/integrations/supabase/client";
 import { Browser } from "@capacitor/browser";
 import { toast } from "sonner";
+import logoIcon from "@/assets/logo-icon.png";
 
 const getRedirectURL = () => {
-  // In APK, hostname is localhost but served via capacitor
   const isNative =
     window.location.protocol === "capacitor:" ||
     window.location.protocol === "ionic:"     ||
@@ -87,12 +87,13 @@ const Auth = () => {
           initial={{ scale: 0.5, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ delay: 0.1, type: "spring", stiffness: 200, damping: 15 }}
-          className="relative mb-6"
+          className="relative mb-4"
         >
-          <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-primary/40 to-accent/30 flex items-center justify-center shadow-[0_0_40px_hsl(270,60%,55%,0.4)] border border-primary/20">
-            <Sparkles size={32} strokeWidth={1.5} className="text-primary" />
-          </div>
-          <div className="absolute inset-0 rounded-3xl bg-primary/20 blur-xl -z-10" />
+          <img
+            src={logoIcon}
+            alt="Luminary"
+            className="w-24 h-24 object-contain drop-shadow-[0_0_20px_hsl(270,60%,55%,0.5)]"
+          />
         </motion.div>
 
         {/* Title */}

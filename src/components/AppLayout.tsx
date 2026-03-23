@@ -3,13 +3,14 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Home, PenLine, Search, BarChart2, User } from "lucide-react";
 import { cn } from "@/lib/utils";
+import logoFull from "@/assets/logo-full.png";
 
 const navItems = [
-  { icon: Home,     label: "Home",     path: "/"         },
-  { icon: Search,   label: "Search",   path: "/search"   },
-  { icon: PenLine,  label: "Write",    path: "/write"    },
-  { icon: BarChart2,label: "Insights", path: "/insights" },
-  { icon: User,     label: "Profile",  path: "/profile"  },
+  { icon: Home,      label: "Home",     path: "/"         },
+  { icon: Search,    label: "Search",   path: "/search"   },
+  { icon: PenLine,   label: "Write",    path: "/write"    },
+  { icon: BarChart2, label: "Insights", path: "/insights" },
+  { icon: User,      label: "Profile",  path: "/profile"  },
 ];
 
 export default function AppLayout({ children }: { children: ReactNode }) {
@@ -24,8 +25,17 @@ export default function AppLayout({ children }: { children: ReactNode }) {
         style={{ background: "var(--gradient-glow)" }}
       />
 
+      {/* Top header with logo */}
+      <header className="fixed top-0 left-0 right-0 z-40 flex items-center justify-center px-4 pt-4 pb-2 pointer-events-none">
+        <img
+          src={logoFull}
+          alt="Luminary"
+          className="h-7 object-contain drop-shadow-[0_0_10px_hsl(270,60%,55%,0.3)]"
+        />
+      </header>
+
       {/* Main content */}
-      <main className="pb-28 relative">{children}</main>
+      <main className="pt-16 pb-28 relative">{children}</main>
 
       {/* Bottom navigation — floating glass pill */}
       <nav className="fixed bottom-6 left-1/2 -translate-x-1/2 w-[92%] max-w-md h-16 rounded-2xl glass shadow-glass flex items-center justify-around px-4 z-50">
