@@ -26,14 +26,16 @@ const features = [
 ];
 
 const Auth = () => {
-  const { user, loading } = useAuth();
-  const [email,         setEmail        ] = useState("");
-  const [magicSending,  setMagicSending ] = useState(false);
-  const [magicSent,     setMagicSent    ] = useState(false);
-  const [googleLoading, setGoogleLoading] = useState(false);
+  const { user, loading, signIn, signUp } = useAuth();
+  const [isSignUp, setIsSignUp] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+  const [confirmSent, setConfirmSent] = useState(false);
 
   if (loading) return <div className="min-h-screen bg-background" />;
-  if (user)    return <Navigate to="/" replace />;
+  if (user) return <Navigate to="/" replace />;
 
   const handleMagicLink = async () => {
     if (!email.trim()) return;
@@ -75,7 +77,7 @@ const Auth = () => {
       <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-primary/8 rounded-full blur-[100px] pointer-events-none" />
 
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: [0.4, 0, 0.2, 1] }}
         className="w-full max-w-sm z-10 flex flex-col items-center"
