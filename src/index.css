@@ -5,7 +5,71 @@
 @tailwind utilities;
 
 @layer base {
+  /* ========== LIGHT THEME (default) ========== */
   :root {
+    --background: 250 30% 98%;
+    --foreground: 240 20% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 20% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 20% 10%;
+
+    --primary: 270 60% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 250 20% 94%;
+    --secondary-foreground: 240 15% 25%;
+
+    --muted: 250 20% 93%;
+    --muted-foreground: 240 10% 45%;
+
+    --accent: 330 65% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 240 15% 88%;
+    --input: 240 15% 88%;
+    --ring: 270 60% 55%;
+
+    --radius: 0.75rem;
+
+    --glow-primary: 270 60% 55%;
+    --glow-accent: 330 65% 55%;
+    --mood-happy: 45 90% 50%;
+    --mood-sad: 220 60% 50%;
+    --mood-excited: 15 85% 55%;
+    --mood-calm: 170 50% 45%;
+    --mood-anxious: 280 50% 50%;
+    --mood-angry: 0 70% 50%;
+    --mood-loved: 340 75% 55%;
+    --mood-neutral: 240 8% 50%;
+
+    --gradient-dreamy: linear-gradient(135deg, hsl(270 60% 55% / 0.1), hsl(330 65% 55% / 0.08));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(250 20% 97%));
+    --gradient-glow: radial-gradient(ellipse at top, hsl(270 60% 55% / 0.06), transparent 60%);
+    --shadow-glow: 0 0 30px -5px hsl(270 60% 55% / 0.2);
+    --shadow-card: 0 4px 24px -4px hsl(0 0% 0% / 0.08);
+
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-body: 'Space Grotesk', sans-serif;
+    --font-serif: 'Crimson Text', serif;
+
+    --sidebar-background: 250 30% 97%;
+    --sidebar-foreground: 240 20% 10%;
+    --sidebar-primary: 270 60% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 250 20% 92%;
+    --sidebar-accent-foreground: 240 15% 25%;
+    --sidebar-border: 240 15% 88%;
+    --sidebar-ring: 270 60% 55%;
+  }
+
+  /* ========== DARK THEME ========== */
+  .dark {
     --background: 240 15% 6%;
     --foreground: 240 10% 90%;
 
@@ -34,9 +98,6 @@
     --input: 240 10% 18%;
     --ring: 270 60% 65%;
 
-    --radius: 0.75rem;
-
-    /* Custom tokens */
     --glow-primary: 270 60% 65%;
     --glow-accent: 330 65% 60%;
     --mood-happy: 45 90% 60%;
@@ -53,10 +114,6 @@
     --gradient-glow: radial-gradient(ellipse at top, hsl(270 60% 65% / 0.08), transparent 60%);
     --shadow-glow: 0 0 30px -5px hsl(270 60% 65% / 0.25);
     --shadow-card: 0 4px 24px -4px hsl(0 0% 0% / 0.4);
-
-    --font-display: 'Space Grotesk', sans-serif;
-    --font-body: 'Space Grotesk', sans-serif;
-    --font-serif: 'Crimson Text', serif;
 
     --sidebar-background: 240 12% 8%;
     --sidebar-foreground: 240 10% 90%;
@@ -96,9 +153,29 @@
   }
 
   .glass {
+    background: hsl(0 0% 100% / 0.7);
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(240 15% 88% / 0.8);
+  }
+
+  .dark .glass {
     background: hsl(240 12% 10% / 0.6);
     backdrop-filter: blur(20px);
     border: 1px solid hsl(240 10% 18% / 0.5);
+  }
+
+  .glass-card {
+    background: hsl(0 0% 100% / 0.8);
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(240 15% 88% / 0.8);
+    box-shadow: 0 4px 24px -4px hsl(0 0% 0% / 0.06);
+  }
+
+  .dark .glass-card {
+    background: hsl(240 12% 10% / 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(240 10% 18% / 0.5);
+    box-shadow: 0 4px 24px -4px hsl(0 0% 0% / 0.4);
   }
 
   .gradient-dreamy {
@@ -110,6 +187,13 @@
   }
 
   .text-gradient {
+    background: linear-gradient(135deg, hsl(270 60% 55%), hsl(330 65% 55%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .dark .text-gradient {
     background: linear-gradient(135deg, hsl(270 60% 70%), hsl(330 65% 65%));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

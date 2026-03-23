@@ -10,6 +10,7 @@ import Search from "./pages/Search";
 import Insights from "./pages/Insights";   // ← changed
 import Profile from "./pages/Profile";
 import NotFound from "./pages/NotFound";
+import { ThemeProvider } from "@/hooks/useTheme";
 
 const queryClient = new QueryClient();
 
@@ -37,11 +38,13 @@ const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Sonner />
+      <ThemeProvider>  
       <AuthProvider>
         <BrowserRouter>
           <AppRoutes />
         </BrowserRouter>
       </AuthProvider>
+      </ThemeProvider> 
     </TooltipProvider>
   </QueryClientProvider>
 );

@@ -1,5 +1,6 @@
 import AppLayout from "@/components/AppLayout";
 import EntryCard from "@/components/EntryCard";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import { motion } from "framer-motion";
 import { Flame, Lightbulb } from "lucide-react";
 import { useAuth } from "@/hooks/useAuth";
@@ -91,16 +92,20 @@ export default function Index() {
   return (
     <AppLayout>
       <div className="px-4 pt-14 pb-6">
+
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="mb-6"
+          className="flex items-center justify-between mb-6"
         >
-          <p className="text-sm text-muted-foreground">{getGreeting()},</p>
-          <h1 className="text-2xl font-bold text-foreground tracking-tight capitalize">
-            {displayName} ✨
-          </h1>
+          <div>
+            <p className="text-sm text-muted-foreground">{getGreeting()},</p>
+            <h1 className="text-2xl font-bold text-foreground tracking-tight capitalize">
+              {displayName} ✨
+            </h1>
+          </div>
+          <ThemeToggle />
         </motion.div>
 
         {/* Today's Prompt */}
@@ -145,7 +150,7 @@ export default function Index() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="glass-card p-4 mb-6 flex items-center gap-3"
+          className="glass-card p-4 mb-6 flex items-center gap-3 rounded-2xl"
         >
           <div className="w-10 h-10 rounded-xl bg-secondary flex items-center justify-center">
             <Flame size={20} strokeWidth={1.5} className="text-orange-400" />
@@ -174,7 +179,7 @@ export default function Index() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="glass-card p-8 text-center"
+            className="glass-card p-8 text-center rounded-2xl"
           >
             <p className="text-muted-foreground text-sm">
               No entries yet. Tap Write to begin your journey.
@@ -186,7 +191,7 @@ export default function Index() {
               <EntryCard
                 key={entry.id}
                 entry={entry}
-                onClick={() => navigate(`/write?id=${entry.id}`)}
+                onClick={() => navigate(`/write/${entry.id}`)}
                 index={i}
               />
             ))}
