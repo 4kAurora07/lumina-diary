@@ -1,0 +1,10 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.luminary.app",
+    "sha256_cert_fingerprints": [
+      "73:BB:D9:AA:56:4D:CF:2F:DC:38:5C:C2:B8:1E:81:3E:72:BB:49:4F:6A:67:91:24:0D:02:25:0C:17:C6:8B:92"
+    ]
+  }
+}]
