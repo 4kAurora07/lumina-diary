@@ -8,14 +8,15 @@ import { supabase } from "@/integrations/supabase/client";
 import { Browser } from "@capacitor/browser";
 import { toast } from "sonner";
 
-// Reliable native detection — capacitor: protocol only exists in APK
 const getRedirectURL = () => {
-  if (
+  // In APK, hostname is localhost but served via capacitor
+  const isNative =
     window.location.protocol === "capacitor:" ||
-    window.location.protocol === "ionic:"
-  ) {
-    return "com.luminary.app://callback";
-  }
+    window.location.protocol === "ionic:"     ||
+    window.location.hostname === "localhost"  ||
+    window.location.hostname === "0.0.0.0";
+
+  if (isNative) return "https://luminary-diary.netlify.app/";
   return `${window.location.origin}/`;
 };
 
